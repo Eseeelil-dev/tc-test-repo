@@ -9,11 +9,19 @@ function logBlock() {
 }
 
 function testSuiteStarted(name, flowId) {
-    console.log(`##teamcity[testSuiteStarted name='${name}' flowId='${flowId}']`);
+    if (flowId) {
+        console.log(`##teamcity[testSuiteStarted name='${name}' flowId='${flowId}']`);
+    } else {
+        console.log(`##teamcity[testSuiteStarted name='${name}']`);
+    }
 }
 
 function testSuiteFinished(name, flowId) {
-    console.log(`##teamcity[testSuiteFinished name='${name}' flowId='${flowId}']`);
+    if (flowId) {
+        console.log(`##teamcity[testSuiteFinished name='${name}' flowId='${flowId}']`);
+    } else {
+        console.log(`##teamcity[testSuiteFinished name='${name}']`);
+    }
 }
 
 function testStarted(name, flowId) {
@@ -30,7 +38,7 @@ function testMessage(name, message, flowId) {
 
 logBlock();
 
-testSuiteStarted('Permit', 1);
+testSuiteStarted('Permit');
 
 testStarted('Create a permit', 1);
 testMessage('Create a permit', `Open url: http://google.com`, 1);
@@ -46,4 +54,4 @@ testMessage('Create a isolation', `Click search button isolation`, 2);
 testMessage('Create a isolation', `Check blah blah isolation`, 2);
 testFinished('Create a isolation', '11100', 2);
 
-testSuiteFinished('Permit', 1);
+testSuiteFinished('Permit');
