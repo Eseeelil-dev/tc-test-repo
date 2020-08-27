@@ -2,9 +2,9 @@
 
 function logBlock() {
     console.log(`##teamcity[blockOpened name='Start' description='Starting test run' flowId='1']`);
-    console.log(`Start tests`);
-    console.log(`User agent chrome`);
-    console.log(`Test count 10`);
+    testMessage('', `Start tests`, 1);
+    testMessage('', `User agent chrome`, 1);
+    testMessage('', `Test count 10`, 1);
     console.log(`##teamcity[blockClosed name='Start' flowId='1']`);
 }
 
