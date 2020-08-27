@@ -1,11 +1,11 @@
 'use strict';
 
 function logBlock() {
-    console.log(`##teamcity[blockOpened name='Start' description='Starting test run' flowId='1']`);
-    testMessage('', `Start tests`, 1);
-    testMessage('', `User agent chrome`, 1);
-    testMessage('', `Test count 10`, 1);
-    console.log(`##teamcity[blockClosed name='Start' flowId='1']`);
+    console.log(`##teamcity[blockOpened name='Start' description='Starting test run' flowId='0']`);
+    testMessage('', `Start tests`, 0);
+    testMessage('', `User agent chrome`, 0);
+    testMessage('', `Test count 10`, 0);
+    console.log(`##teamcity[blockClosed name='Start' flowId='0']`);
 }
 
 function testSuiteStarted(name, flowId) {
@@ -38,8 +38,6 @@ function testMessage(name, message, flowId) {
 
 logBlock();
 
-testSuiteStarted('Permit');
-
 testStarted('Create a permit', 1);
 testMessage('Create a permit', `Open url: http://google.com`, 1);
 
@@ -54,5 +52,3 @@ testMessage('Create a isolation', `Check blah blah isolation`, 2);
 testFinished('Create a isolation', '11100', 2);
 testMessage('Create a permit', `Check blah blah`, 1);
 testFinished('Create a permit', '12050', 1);
-
-testSuiteFinished('Permit');
