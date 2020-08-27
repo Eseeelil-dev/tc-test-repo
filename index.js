@@ -31,8 +31,8 @@ function testMessage(name, message, flowId) {
 logBlock();
 testSuiteStarted('Permit', 1);
 testStarted('Create a permit', 1);
-testMessage('Create a permit', `Open url: http://google.com`, 1);
-testMessage('Create a permit', `Type text: blah blah`, 1);
+testMessage('Create a permit', `Open url: http://google.com`, 2);
+testMessage('Create a permit', `Type text: blah blah`, 2);
 testMessage('Create a permit', `Click search button`, 1);
 testMessage('Create a permit', `Check blah blah`, 1);
 testFinished('Create a permit', '12050', 1);
