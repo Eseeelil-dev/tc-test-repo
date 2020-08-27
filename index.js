@@ -29,11 +29,21 @@ function testMessage(name, message, flowId) {
 }
 
 logBlock();
+
 testSuiteStarted('Permit', 1);
+
 testStarted('Create a permit', 1);
-testMessage('Create a permit', `Open url: http://google.com`, 2);
-testMessage('Create a permit', `Type text: blah blah`, 2);
+testMessage('Create a permit', `Open url: http://google.com`, 1);
+testMessage('Create a permit', `Type text: blah blah`, 1);
 testMessage('Create a permit', `Click search button`, 1);
 testMessage('Create a permit', `Check blah blah`, 1);
 testFinished('Create a permit', '12050', 1);
+
+testStarted('Create a isolation', 2);
+testMessage('Create a isolation', `Open url: http://google.com/isolation`, 2);
+testMessage('Create a isolation', `Type text: blah blah isolation`, 2);
+testMessage('Create a isolation', `Click search button isolation`, 2);
+testMessage('Create a isolation', `Check blah blah isolation`, 2);
+testFinished('Create a isolation', '11100', 2);
+
 testSuiteFinished('Permit', 1);
