@@ -24,16 +24,16 @@ function testFinished(name, duration, flowId) {
     console.log(`##teamcity[testFinished name='${name}' duration='${duration}' flowId='${flowId}']`);
 }
 
-function testMessage(name, message) {
-    console.log(`##teamcity[message text='${message}']`);
+function testMessage(name, message, flowId) {
+    console.log(`##teamcity[message text='${message}' flowId='${flowId}']`);
 }
 
 logBlock();
-testSuiteStarted('Permit', '1');
-testStarted('Create a permit', '1');
-testMessage('Create a permit', `Open url: http://google.com`);
-testMessage('Create a permit', `Type text: blah blah`);
-testMessage('Create a permit', `Click search button`);
-testMessage('Create a permit', `Check blah blah`);
+testSuiteStarted('Permit', 1);
+testStarted('Create a permit', 1);
+testMessage('Create a permit', `Open url: http://google.com`, 1);
+testMessage('Create a permit', `Type text: blah blah`, 1);
+testMessage('Create a permit', `Click search button`, 1);
+testMessage('Create a permit', `Check blah blah`, 1);
 testFinished('Create a permit', '12050', 1);
-testSuiteFinished('Permit', '1');
+testSuiteFinished('Permit', 1);
