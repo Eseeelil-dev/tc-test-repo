@@ -22,7 +22,7 @@ test('Create a isolation', async (l) => {
 });
 
 test('Dummy test', async () => {
-    await delay(5000);
+    await delay(15000);
 });
 
 test('Create a certificate', async (l) => {
