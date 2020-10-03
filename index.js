@@ -33,22 +33,29 @@ function testFinished(name, duration, flowId) {
 }
 
 function testMessage(name, message, flowId) {
-    console.log(`##teamcity[message text='${message} (Message)' flowId='${flowId}']`);
+    console.log(`##teamcity[message text='${name}: ${message} (Message)' flowId='${flowId}']`);
 }
+
+const tests = [
+    'Create a permit',
+    'Create a isolation',
+];
+
+const ids = [ 1, 2 ];
 
 logBlock();
 
-testStarted('Create a permit', 1);
-testMessage('Create a permit', `Open url: http://google.com`, 1);
+testStarted(tests[0], ids[0]);
+testMessage(tests[0], `Open url: http://google.com`, ids[0]);
 
-testStarted('Create a isolation', 2);
+testStarted(tests[1], ids[1]);
 
-testMessage('Create a permit', `Type text: blah blah`, 1);
-testMessage('Create a isolation', `Open url: http://google.com/isolation`, 2);
-testMessage('Create a isolation', `Type text: blah blah isolation`, 2);
-testMessage('Create a isolation', `Click search button isolation`, 2);
-testMessage('Create a permit', `Click search button`, 1);
-testMessage('Create a isolation', `Check blah blah isolation`, 2);
-testFinished('Create a isolation', '11100', 2);
-testMessage('Create a permit', `Check blah blah`, 1);
-testFinished('Create a permit', '12050', 1);
+testMessage(tests[0], `Type text: blah blah`, ids[0]);
+testMessage(tests[1], `Open url: http://google.com/isolation`, ids[1]);
+testMessage(tests[1], `Type text: blah blah isolation`, ids[1]);
+testMessage(tests[1], `Click search button isolation`, ids[1]);
+testMessage(tests[0], `Click search button`, ids[0]);
+testMessage(tests[1], `Check blah blah isolation`, ids[1]);
+testFinished(tests[1], '11100', ids[1]);
+testMessage(tests[0], `Check blah blah`, ids[0]);
+testFinished(tests[0], '12050', ids[0]);
