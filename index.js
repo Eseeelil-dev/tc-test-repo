@@ -12,26 +12,48 @@ function logBlock() {
 
 logBlock();
 
-test('Create a permit', async (logStream) => {
-    logStream.testMessage(`Open url: http://google.com`);
+test('Create a permit', async (l) => {
+    l.testMessage(`Open url: http://google.com`);
     await delay(205);
-    logStream.testMessage(`Type text: blah blah`);
+    l.testMessage(`Type text: blah blah`);
     await delay(1000);
-    logStream.testMessage(`Click search button`);
+    l.testMessage(`Click search button`);
     await delay(500);
-    logStream.testMessage(`Check blah blah`);
-    logStream.testMessage(`Check blah blah 2`);
+    l.testMessage(`Check blah blah`);
+    l.testMessage(`Check blah blah 2`);
 });
 
-test('Create a isolation', async (logStream) => {
-    logStream.testMessage(`Open url: http://google.com/isolation`);
+test('Create a isolation', async (l) => {
+    l.testMessage(`Open url: http://google.com/isolation`);
     await delay(200);
-    logStream.testMessage(`Type text: blah blah isolation`);
+    l.testMessage(`Type text: blah blah isolation`);
     await delay(500);
-    logStream.testMessage(`Click search button isolation`);
+    l.testMessage(`Click search button isolation`);
     await delay(1000);
-    logStream.testMessage(`Check blah blah isolation`);
-    logStream.testMessage(`Check blah blah isolation 2`);
+    l.testMessage(`Check blah blah isolation`);
+    l.testMessage(`Check blah blah isolation 2`);
+});
+
+test('Create a certificate', async (l) => {
+    l.testMessage(`Open url: http://google.com/certificate`);
+    await delay(200);
+    l.testMessage(`Type text: blah blah certificate`);
+    await delay(500);
+    l.testMessage(`Click search button certificate`);
+    await delay(1000);
+    l.testMessage(`Check blah blah certificate`);
+    l.testMessage(`Check blah blah certificate 2`);
+});
+
+test('Create a calendar', async (l) => {
+    l.testMessage(`Open url: http://google.com/calendar`);
+    await delay(200);
+    l.testMessage(`Type text: blah blah calendar`);
+    await delay(500);
+    l.testMessage(`Click search button calendar`);
+    await delay(1000);
+    l.testMessage(`Check blah blah calendar`);
+    l.testMessage(`Check blah blah calendar 2`);
 });
 
 run();

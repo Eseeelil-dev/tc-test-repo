@@ -32,7 +32,7 @@ class LogStream {
 }
 
 function test(name, fn) {
-    const fn1 = async () => {
+    const testWrapper = async () => {
         let logStream = new LogStream(name);
         let passed = false;
         let startedTime = Date.now();
@@ -46,13 +46,13 @@ function test(name, fn) {
         logStream.flush();
         return [name, passed];
     };
-    tests.push({name, func: fn1});
+    tests.push({name, test: testWrapper});
 }
 
 function run() {
     Promise
         // Start all tests
-        .all(tests.map(({func}) => func()))
+        .all(tests.map(({test}) => test()))
         // Get the results
         .then(_ => {
             process.exit(0);
