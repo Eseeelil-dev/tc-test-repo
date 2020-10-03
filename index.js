@@ -1,39 +1,39 @@
 'use strict';
 
 function logBlock() {
-    console.log(`##teamcity[blockOpened name='Start' description='Starting test run' flowId='0']`);
-    testMessage('', `Start tests`, 0);
-    testMessage('', `User agent chrome`, 0);
-    testMessage('', `Test count 10`, 0);
-    console.log(`##teamcity[blockClosed name='Start' flowId='0']`);
+    console.log(`##teamcity[blockOpened name='Start (block)' description='Starting test run' flowId='0']`);
+    testMessage('', `Start (block) Start tests`, 0);
+    testMessage('', `Start (block) User agent chrome`, 0);
+    testMessage('', `Start (block) Test count 10`, 0);
+    console.log(`##teamcity[blockClosed name='Start (block)' flowId='0']`);
 }
 
 function testSuiteStarted(name, flowId) {
     if (flowId) {
-        console.log(`##teamcity[testSuiteStarted name='${name}' flowId='${flowId}']`);
+        console.log(`##teamcity[testSuiteStarted name='${name} (Suite)' flowId='${flowId}']`);
     } else {
-        console.log(`##teamcity[testSuiteStarted name='${name}']`);
+        console.log(`##teamcity[testSuiteStarted name='${name} (Suite)']`);
     }
 }
 
 function testSuiteFinished(name, flowId) {
     if (flowId) {
-        console.log(`##teamcity[testSuiteFinished name='${name}' flowId='${flowId}']`);
+        console.log(`##teamcity[testSuiteFinished name='${name} (Suite)' flowId='${flowId}']`);
     } else {
-        console.log(`##teamcity[testSuiteFinished name='${name}']`);
+        console.log(`##teamcity[testSuiteFinished name='${name} (Suite)']`);
     }
 }
 
 function testStarted(name, flowId) {
-    console.log(`##teamcity[testStarted name='${name}' flowId='${flowId}']`);
+    console.log(`##teamcity[testStarted name='${name} (Test)' flowId='${flowId}']`);
 }
 
 function testFinished(name, duration, flowId) {
-    console.log(`##teamcity[testFinished name='${name}' duration='${duration}' flowId='${flowId}']`);
+    console.log(`##teamcity[testFinished name='${name} (Test)' duration='${duration}' flowId='${flowId}']`);
 }
 
 function testMessage(name, message, flowId) {
-    console.log(`##teamcity[message text='${message}' flowId='${flowId}']`);
+    console.log(`##teamcity[message text='${message} (Message)' flowId='${flowId}']`);
 }
 
 logBlock();
