@@ -2,6 +2,10 @@
 
 const tests = [];
 
+function timestamp() {
+    return new Date().toISOString().substr(11, 12);
+}
+
 class LogStream {
     constructor(name) {
         this.name = name;
@@ -9,15 +13,15 @@ class LogStream {
     }
 
     testStarted() {
-        this.messages.push(`##teamcity[testStarted name='${this.name} (Test)' flowId='${this.name}']`);
+        this.messages.push(`##teamcity[testStarted name='${timestamp()} ${this.name} (Test)' flowId='${this.name}']`);
     }
 
     testFinished(duration) {
-        this.messages.push(`##teamcity[testFinished name='${this.name} (Test)' duration='${duration}' flowId='${this.name}']`);
+        this.messages.push(`##teamcity[testFinished name='${timestamp()} ${this.name} (Test)' duration='${duration}' flowId='${this.name}']`);
     }
 
     testMessage(message) {
-        this.messages.push(`##teamcity[message text='${this.name}: ${message} (Message)' flowId='${this.name}']`);
+        this.messages.push(`##teamcity[message text='${timestamp()} ${this.name}: ${message} (Message)' flowId='${this.name}']`);
     }
 
     flush() {
