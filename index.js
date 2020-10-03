@@ -56,4 +56,4 @@ test('Create a calendar', async (l) => {
     l.testMessage(`Check blah blah calendar 2`);
 });
 
-run();
+delay(5000).then(() => run());
