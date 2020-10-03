@@ -34,6 +34,10 @@ test('Create a isolation', async (l) => {
     l.testMessage(`Check blah blah isolation 2`);
 });
 
+test('Dummy test', async () => {
+    await delay(5000);
+});
+
 test('Create a certificate', async (l) => {
     l.testMessage(`Open url: http://google.com/certificate`);
     await delay(200);
