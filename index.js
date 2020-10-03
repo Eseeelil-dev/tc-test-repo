@@ -14,11 +14,8 @@ logBlock();
 
 test('Create a permit', async (l) => {
     l.testMessage(`Open url: http://google.com`);
-    await delay(205);
     l.testMessage(`Type text: blah blah`);
-    await delay(1000);
     l.testMessage(`Click search button`);
-    await delay(500);
     l.testMessage(`Check blah blah`);
     l.testMessage(`Check blah blah 2`);
 });
