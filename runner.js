@@ -46,13 +46,13 @@ function test(name, fn) {
         logStream.flush();
         return [name, passed];
     };
-    tests.push({name, test: testWrapper});
+    tests.push(testWrapper);
 }
 
 function run() {
     Promise
         // Start all tests
-        .all(tests.map(({test}) => test()))
+        .all(tests.map(test => test()))
         // Get the results
         .then(_ => {
             process.exit(0);

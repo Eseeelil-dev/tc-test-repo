@@ -2,16 +2,6 @@
 
 const { test, run, delay } = require('./runner');
 
-function logBlock() {
-    console.log(`##teamcity[blockOpened name='Start (block)' description='Starting test run' flowId='0']`);
-    console.log(`##teamcity[message text='Start (block): Start (block) Start tests (Message)' flowId='0']`);
-    console.log(`##teamcity[message text='Start (block): Start (block) User agent chrome (Message)' flowId='0']`);
-    console.log(`##teamcity[message text='Start (block): Start (block) Test count 10 (Message)' flowId='0']`);
-    console.log(`##teamcity[blockClosed name='Start (block)' flowId='0']`);
-}
-
-logBlock();
-
 test('Create a permit', async (l) => {
     l.testMessage(`Open url: http://google.com`);
     l.testMessage(`Type text: blah blah`);
@@ -57,4 +47,4 @@ test('Create a calendar', async (l) => {
     l.testMessage(`Check blah blah calendar 2`);
 });
 
-delay(5000).then(() => run());
+run();
